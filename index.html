@@ -1,0 +1,207 @@
+!<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <title>Git et Github</title>
+    </head>
+    <body>
+        <h1>A la découverte de Git</h1>
+        <h2>version 1</h2>
+       <!-- Git pas à pas en ligne de commende Git bash sur Desktop--> 
+            <!--$ pwd pour savoir dans quel dossier on se trouve-->
+        <p>Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop
+            $ pwd
+            /c/Users/Martin/Desktop
+            <!-- $ cd github pour se positioner dans Desktop-->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop
+            $ cd desktop
+            bash: cd: desktop: No such file or directory
+            <!-- $ mkdir github pour creer le dossier github sur Desktop-->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop
+            $ mkdir github
+            <!-- $ cd github pour se mettre dans Dossier github-->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop
+            $ cd github
+            <!-- $ ls pour voir la liste des fichiers dans le Dossier github-->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github
+            $ ls
+            <!-- $ touch text.txt pour creer un fichier dans Desktop/github-->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github
+            $ touch text.txt
+            <!-- $ ls pour voir le contenu du fichier text.txt-->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github
+            $ ls
+            text.txt
+            <!-- erreur ci-dessous mes nom et mail ne sont pas encore configurer-->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github
+            $ git config --global --list
+            fatal: unable to read config file 'C:/Users/Martin/.gitconfig': No such file or directory
+            
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github
+            $ cd ..
+            
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop
+            $ git config --global --list
+            fatal: unable to read config file 'C:/Users/Martin/.gitconfig': No such file or directory
+            <!-- pour configurer mon nom-->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop
+            $ git config -global user.name "Menakod"
+            error: did you mean `--global` (with two dashes)?
+            <!-- pour configurer mon nom-->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop
+            $ git config --global user.name "Menakod"
+            <!-- pour configurer mon mail-->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop
+            $ git config --global user.email menakod@gmail.com
+            <!--$ git config --global --list pour verifier mes nom et mail apres configuration -->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop
+            $ git config --global --list
+            user.name=Menakod
+            user.email=menakod@gmail.com
+            
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop
+            $ cd github
+            
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github
+            $ ls
+            text.txt
+            <!-- $ cd github cree un nouveau dépôt git -->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github
+            $ git init
+            Initialized empty Git repository in C:/Users/Martin/Desktop/github/.git/
+            <!--la commande $ code . ouvre automatiquement VSCode --> 
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github (master)
+            $ code .
+            <!--$ git add . met les fichiers dans une zone d'index (ne sauvegarde pas)--> 
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github (master)
+            $ git add .
+            <!--$ git status pour voir ce qu'on a à ajouter (new file ci-dessus) avec git add -->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github (master)
+            $ git status
+            On branch master
+
+            No commits yet
+
+            Changes to be committed:
+            (use "git rm --cached <file>..." to unstage)
+            new file:   index.html
+            new file:   text.txt
+
+            <!--$ git commit -m "indication du nom de la version"sauvegarde les fichiers -->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github (master)
+            $ git commit -m "Première version"
+            [master (root-commit) 862f442] Première version
+            2 files changed, 83 insertions(+)
+            create mode 100644 index.html
+            create mode 100644 text.txt
+            <!-- $ git log pour cequi sauvegardé avec git commit -->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github (master)
+            $ git log
+            commit 862f442d3c8a2c436845c17a5f2684ea2fda3cb0 (HEAD -> master)
+            Author: Menakod <menakod@gmail.com>
+            Date:   Sun Dec 10 21:34:26 2023 +0100
+            <!-- pour retrouver ce fichier un jour suffit de recuperer le shawan chiffre hexadecimal-->
+            Première version
+            </p>
+            <h3>version 2</h3>
+            <p>
+            <!--nous sommes ds la 2e version apres le 1er commit -->
+            <!-- plus besoin de git init car text.txt rest inchangé on passe a add pour indexer la 2e version 
+            puis status qui indique que index.html a été modifié puis commit qui sauvegarde la 2e version-->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github (master)
+            $ git add .
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github (master)
+            $ git status
+            On branch master
+            Changes to be committed:
+            (use "git restore --staged <file>..." to unstage)
+            modified:   index.html
+
+
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github (master)
+            $ git commit -m "version 2 à partir du titre h3"
+            [master 2808044] version 2 à partir du titre h3
+             1 file changed, 38 insertions(+), 3 deletions(-)
+            <!-- passons à git log pour afficher toutes les versions -->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github (master)
+            $ git log
+            commit 280804475edecea3848541a6d23c79b7ff82b9fb (HEAD -> master)
+            Author: Menakod <menakod@gmail.com>
+            Date:   Sun Dec 10 22:00:23 2023 +0100
+
+            version 2 à partir du titre h3
+
+            commit 862f442d3c8a2c436845c17a5f2684ea2fda3cb0
+            Author: Menakod <menakod@gmail.com>
+            Date:   Sun Dec 10 21:34:26 2023 +0100
+
+            Première version
+            <!--on passe a Github pour versioner sur un depôt distant Repositories new create new repository Repository name(mettre un nom)-->
+            <!--copier lien(https://github.com/MenakoD/myGithub-training.git) Github.com puis revenir sur git bash et coller pour cloner-->
+            <!--fermons notre git bash sur desktop puis ouvrons une nouvelle fenêtre Git bashtjrs sur dektop-->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/github (master)
+            $ git clone https://github.com/MenakoD/myGithub-training.git
+            Cloning into 'myGithub-training'...
+            warning: You appear to have cloned an empty repository.
+            <!-- ce clonage crée unnouveau dossier Git vide sur desktop ds celui-ci on fait couper-coller de 
+            index.html et le fichier text.txt puis-->
+            <!--passons a commit du projet sur Github avec git add .. puis git commit -m "message" et 
+            enfin git push -u origin master Attention se mettre non sur Desktop mais myGithub-training-->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop
+            $ cd myGithub-training/
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop
+            $ cd myGithub-training/
+            <!-- reste à claifier au lieu de Master j'ai Main  selon google la meme chose-->
+            
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/myGithub-training (main)
+            $ git status
+            On branch main
+
+            No commits yet
+
+            Changes to be committed:
+            (use "git rm --cached <file>..." to unstage)
+            new file:   index.html
+            new file:   text.txt
+
+
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/myGithub-training (main)
+            $ git commit -m "premier envoi sur Github"
+            [main (root-commit) 05e14dc] premier envoi sur Github
+            2 files changed, 162 insertions(+)
+            create mode 100644 index.html
+            create mode 100644 text.txt
+            <!-- git push -u origin main pour pousser les mocifications vers le serveur -->
+            <!--une authentification de l'utilisateur est exiger ici avant l'affichage de ce qui suit-->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/myGithub-training (main)
+            $ git push -u origin main
+            Enumerating objects: 4, done.
+            Counting objects: 100% (4/4), done.
+            Delta compression using up to 4 threads
+            Compressing objects: 100% (3/3), done.
+            Writing objects: 100% (4/4), 2.25 KiB | 287.00 KiB/s, done.
+            Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+            To https://github.com/MenakoD/myGithub-training.git
+             * [new branch]      main -> main
+            branch 'main' set up to track 'origin/main'.
+            <!-- pour modifier et continuer avec le repository crée sur Github repeter les étapes git clone  git add . git commit -m "message" 
+            git push -u origin-->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop/myGithub-training (main)
+            $
+            </p>
+            <h4>Héberger site sur Github</h4>
+            <!-- astuce pour faire héberger son site par exple https://github.com/MenakoD/MenakoD.github.io.git créer new repository lui donner
+            le nom voulu exple MenakoD(ajouter .github.io)-->
+            <p>
+            <!--copier coller ds Gitbash pour cloner-->
+            Martin@DESKTOP-1HJ1PTS MINGW64 ~/Desktop
+            $ git clone https://github.com/MenakoD/MenakoD.github.io.git
+            Cloning into 'MenakoD.github.io'...
+            warning: You appear to have cloned an empty repository.
+            <!--comme ci-haut copier coller pour exercise index.html du dossier précédent ds le empty repository-->
+            </p>
+    </body>
+</html>
